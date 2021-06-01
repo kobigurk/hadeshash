@@ -32,7 +32,7 @@ if FIELD == 1 and len(sys.argv) != 8:
     print("Please specify a prime number (in hex format)!")
     exit()
 elif FIELD == 1 and len(sys.argv) == 8:
-    PRIME_NUMBER = int(sys.argv[7], 16) # e.g. 0xa7, 0xFFFFFFFFFFFFFEFF, 0xa1a42c3efd6dbfe08daa6041b36322ef
+    PRIME_NUMBER = int(sys.argv[7])
 
 F = GF(PRIME_NUMBER)
 

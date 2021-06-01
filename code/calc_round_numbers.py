@@ -94,52 +94,9 @@ def print_latex_table_combinations(combinations, alpha, security_margin):
         sbox_string = "x^{" + str(alpha) + "}"
         print("$" + str(M) + "$ & $" + str(N) + "$ & $" + str(n) + "$ & $" + str(t) + "$ & $" + str(ret[0]) + "$ & $" + str(ret[1]) + "$ & $" + field_string + "$ & $" + str(ret[2]) + "$ & $" + str(ret[3]) + "$ \\\\")
 
+PRIME = int(sys.argv[1])
+T = int(sys.argv[2])
+ALPHA = int(sys.argv[3])
+
 # Single tests
-# print calc_final_numbers_fixed(Crypto.Util.number.getPrime(64), 24, 3, 128, True)
-# print calc_final_numbers_fixed(Crypto.Util.number.getPrime(253), 6, -1, 128, True)
-print(calc_final_numbers_fixed(Crypto.Util.number.getPrime(255), 3, 5, 128, True))
-print(calc_final_numbers_fixed(Crypto.Util.number.getPrime(255), 6, 5, 128, True))
-print(calc_final_numbers_fixed(Crypto.Util.number.getPrime(254), 3, 5, 128, True))
-print(calc_final_numbers_fixed(Crypto.Util.number.getPrime(254), 6, 5, 128, True))
-print(calc_final_numbers_fixed(Crypto.Util.number.getPrime(64), 24, 3, 128, True))
-
-# x^5 (254-bit prime number)
-#prime = 0x30644e72e131a029b85045b68181585d2833e84879b9709143e1f593f0000001
-x_5_combinations = [
-    [1536, 2, 128], [1536, 4, 128], [1536, 6, 128], [1536, 8, 128], [1536, 16, 128],
-    [1536, 2, 256], [1536, 4, 256], [1536, 6, 256], [1536, 8, 256], [1536, 16, 256]
-]
-
-# With security margin
-print("--- Table x^5 WITH security margin ---")
-print_latex_table_combinations(x_5_combinations, 5, True)
-
-# Without security margin
-print("--- Table x^5 WITHOUT security margin ---")
-print_latex_table_combinations(x_5_combinations, 5, False)
-
-x_3_combinations = [
-    [1536, 2, 128], [1536, 4, 128], [1536, 6, 128], [1536, 8, 128], [1536, 16, 128],
-    [1536, 2, 256], [1536, 4, 256], [1536, 6, 256], [1536, 8, 256], [1536, 16, 256]
-]
-
-# With security margin
-print("--- Table x^3 WITH security margin ---")
-print_latex_table_combinations(x_3_combinations, 3, True)
-
-# Without security margin
-print("--- Table x^3 WITHOUT security margin ---")
-print_latex_table_combinations(x_3_combinations, 3, False)
-
-x_inv_combinations = [
-    [1536, 2, 128], [1536, 4, 128], [1536, 6, 128], [1536, 8, 128], [1536, 16, 128],
-    [1536, 2, 256], [1536, 4, 256], [1536, 6, 256], [1536, 8, 256], [1536, 16, 256]
-]
-
-# With security margin
-print("--- Table x^(-1) WITH security margin ---")
-print_latex_table_combinations(x_inv_combinations, -1, True)
-
-# Without security margin
-print("--- Table x^(-1) WITHOUT security margin ---")
-print_latex_table_combinations(x_inv_combinations, -1, False)
+print(calc_final_numbers_fixed(PRIME, T, ALPHA, 128, True))
